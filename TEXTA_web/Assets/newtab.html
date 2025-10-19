@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New tab</title>
+    <style>
+        /* Fond avec image et overlay sombre */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            color: #eee;
+            background: 
+                linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                url('bg.png') no-repeat center center fixed;
+            background-size: cover;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            user-select: none;
+        }
+
+        main {
+            margin: 0 20px;
+            padding-top: 90px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .welcome {
+            font-size: 3.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 40px;
+            color: #fff;
+            text-shadow: 0 3px 10px rgba(0, 0, 0, 0.7);
+        }
+
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .search-bar form {
+            display: flex;
+            width: 100%;
+            max-width: 600px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+        }
+
+        .search-bar input {
+            flex-grow: 1;
+            padding: 15px 20px;
+            font-size: 1.2rem;
+            border: none;
+            outline: none;
+            color: #fff;
+            background: transparent;
+            font-weight: 500;
+            ::placeholder {
+                color: #ddd;
+            }
+        }
+
+        .search-bar button {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border: none;
+            background-color: rgb(150, 150, 250);
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .search-bar button:hover {
+            background-color: rgb(125, 125, 250);
+        }
+
+        .quick-links {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .quick-links a {
+            text-decoration: none;
+            color: #fff;
+            padding: 18px 0;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border-radius: 15px;
+            width: calc(25% - 15px);
+            text-align: center;
+            font-weight: 600;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+            transition: all 0.25s ease;
+            user-select: none;
+        }
+
+        .quick-links a:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+        }
+
+        .widgets {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 60px;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .widget {
+            background-color: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 30px 25px;
+            width: 30%;
+            min-width: 280px;
+            color: #fff;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            font-weight: 600;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .widget h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            letter-spacing: 1.2px;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+        }
+
+        .widget p {
+            font-size: 1.3rem;
+            margin: 10px 0 0 0;
+            color: #ddd;
+            text-align: center;
+            min-height: 36px;
+        }
+
+        .widget .value {
+            font-size: 2.4rem;
+            font-weight: 700;
+            margin-top: 6px;
+            color: #ffd54f;
+            text-shadow: 0 0 8px #ffd54f;
+        }
+
+        .widget .error {
+            font-size: 1.2rem;
+            color: #ff6b6b;
+            font-weight: 700;
+            margin-top: 6px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            background-color: rgba(0, 0, 0, 0.75);
+            color: #ccc;
+            margin-top: 80px;
+            font-size: 1rem;
+            user-select: none;
+        }
+
+        @media (max-width: 768px) {
+            .quick-links a {
+                width: 48%;
+            }
+            .widgets {
+                flex-direction: column;
+                gap: 25px;
+            }
+            .widget {
+                width: 100%;
+                min-width: unset;
+            }
+        }
+    </style>
+
+</head>
+<body>
+
+    <main>
+        <!-- Message de bienvenue -->
+        <div class="welcome">Bienvenue sur TEXTA web</div>
+
+        <!-- Barre de recherche -->
+        <div class="search-bar">
+            <form action="https://search.brave.com/" method="GET">
+                <input type="text" name="q" placeholder="Rechercher sur le web...">
+                <button type="submit">Rechercher</button>
+            </form>
+        </div>
+
+        <div class="info">
+            <h1>Créez votre page web !</h1>
+            <p>La version dev preview vous propose de faire votre page web</p>
+        </div>
+
+        <!-- Liens rapides -->
+        <div class="quick-links">
+            <a href="page/Ethan Macaluso/TEXTA/index.html">TEXTA</a>
+            <a href="page/Anton Macaluso/Paradise Band/index.html">The Paradise Band</a>
+        </div>
+
+        <!-- Widgets -->
+        <div class="widgets">
+            <!-- Widget Météo -->
+            <div class="widget" id="weather-widget">
+                <h3>Météo</h3>
+                <p id="weather-location">Chargement...</p>
+                <p id="weather-temp">Chargement...</p>
+                <p id="weather-error" class="error"></p> <!-- Message d'erreur -->
+            </div>
+
+            <!-- Widget Vitesse du Processus -->
+            <div class="widget" id="process-speed-widget">
+                <h3>Vitesse du processus</h3>
+                <p id="process-speed">Calcul en cours...</p>
+            </div>
+
+            <!-- Widget Heure -->
+            <div class="widget" id="clock-widget">
+                <h3>Heure actuelle</h3>
+                <p id="current-time">Chargement...</p>
+            </div>
+        </div>
+
+        <!-- Pied de page -->
+        <footer>
+            <p>© 2025 TEXTA web | Tous droits réservés</p>
+        </footer>
+    </main>
+
+    <script>
+        // Météo (API de météo)
+        async function getWeather() {
+            const apiKey = 'votre_clé_API';
+            const city = 'Liège';  // Modifier la ville
+            const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&lang=fr&appid=${apiKey}`;
+
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                if (data.cod === 200) {
+                    document.getElementById('weather-location').textContent = `${data.name}, ${data.sys.country}`;
+                    document.getElementById('weather-temp').textContent = `${Math.round(data.main.temp)}°C`;
+                    document.getElementById('weather-error').textContent = ''; // Reset error message
+                } else {
+                    throw new Error('Données non disponibles');
+                }
+            } catch (error) {
+                document.getElementById('weather-location').textContent = 'Erreur';
+                document.getElementById('weather-temp').textContent = 'Impossible de récupérer les données';
+                document.getElementById('weather-error').textContent = 'Erreur de connexion ou d\'API';
+            }
+        }
+        getWeather();
+
+        // Vitesse du processus (simulation)
+        function calculateProcessSpeed() {
+            let startTime = performance.now();
+            // Effectuer une tâche fictive (par exemple, une boucle)
+            for (let i = 0; i < 1000000; i++) {}
+            let endTime = performance.now();
+            let duration = endTime - startTime;
+            document.getElementById('process-speed').textContent = `Temps de calcul : ${duration.toFixed(2)} ms`;
+        }
+        calculateProcessSpeed();
+
+        // Heure actuelle
+        function updateClock() {
+            const currentTime = new Date().toLocaleTimeString();
+            document.getElementById('current-time').textContent = currentTime;
+        }
+        setInterval(updateClock, 1000); // Actualiser chaque seconde
+        updateClock();
+    </script>
+</body>
+</html>

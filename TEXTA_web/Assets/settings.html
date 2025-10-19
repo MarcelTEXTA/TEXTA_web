@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paramètres de TEXTA web</title>
+    <style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: rgb(240, 240, 240);
+        color: rgb(25, 25, 25);
+    }
+
+    .side-bar {
+        width: 250px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        background-color: rgb(200, 200, 200);
+        padding: 20px;
+    }
+
+    .side-bar ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .side-bar ul li {
+        margin: 10px 0;
+    }
+
+    .side-bar ul li a {
+        text-decoration: none;
+        font-size: 16px;
+        color: rgb(25, 25, 25);
+    }
+
+    .side-bar ul:focus {
+        background-color: rgb(225, 225, 225);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    main {
+        margin-left: 270px;
+        padding: 20px;
+    }
+
+    section {
+        display: none;
+        margin-bottom: 20px;
+        padding: 15px;
+    }
+
+    section.active {
+        display: block;
+    }
+
+    section h2 {
+        margin-top: 0;
+        color: #333;
+    }
+    </style>
+</head>
+<body>
+    <div class="side-bar">
+        <ul>
+            <li><a href="#services">Vous et nos services</a></li>
+            <li><a href="#apparence">Apparence</a></li>
+            <li><a href="#search">Recherche</a></li>
+            <li><a href="#security">Sécurité et confidentialité</a></li>
+            <li><a href="#privacy">Vie privée</a></li>
+            <li><a href="#sync">Synchronisations</a></li>
+            <li><a href="#extensions">Extensions</a></li>
+            <br>
+            <li><a href="#passwords">Saisie automatique mots de passe</a></li>
+            <li><a href="#languages">Langues</a></li>
+            <li><a href="#downloads">Téléchargements</a></li>
+            <li><a href="#accessibility">Accessibilité</a></li>
+            <li><a href="#system">Système</a></li>
+            <li><a href="#about">À propos de TEXTA web</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <section id="services" class="active">
+            <h2>Vous et nos services</h2>
+            <div class="element" id="profile">
+                <a href="#profile">
+                    <h3>Votre profil</h3>
+                    <p>Gérez vos informations personnelles et vos préférences.</p>
+                </a>
+            </div>
+        </section>
+        <section id="profile">
+            <h2>Votre profil</h2>
+            <p>Gérez vos informations personnelles et vos préférences.</p>
+        </section>
+        <section id="apparence">
+            <h2>Apparence</h2>
+            <p>Personnalisez l'apparence de votre navigateur.</p>
+        </section>
+        <section id="search">
+            <h2>Recherche</h2>
+            <p>Configurez vos préférences de recherche.</p>
+        </section>
+        <section id="security">
+            <h2>Sécurité et confidentialité</h2>
+            <p>Gérez vos paramètres de sécurité et de confidentialité.</p>
+        </section>
+        <section id="privacy">
+            <h2>Vie privée</h2>
+            <p>Contrôlez vos données personnelles et votre vie privée.</p>
+        </section>
+        <section id="sync">
+            <h2>Synchronisations</h2>
+            <p>Synchronisez vos données entre vos appareils.</p>
+        </section>
+        <section id="extensions">
+            <h2>Extensions</h2>
+            <p>Gérez vos extensions et modules complémentaires.</p>
+        </section>
+        <section id="passwords">
+            <h2>Saisie automatique mots de passe</h2>
+            <p>Gérez vos mots de passe et la saisie automatique.</p>
+        </section>
+        <section id="languages">
+            <h2>Langues</h2>
+            <p>Configurez vos préférences linguistiques.</p>
+        </section>
+        <section id="downloads">
+            <h2>Téléchargements</h2>
+            <p>Gérez vos paramètres de téléchargement.</p>
+        </section>
+        <section id="accessibility">
+            <h2>Accessibilité</h2>
+            <p>Configurez les options d'accessibilité pour une meilleure expérience.</p>
+        </section>
+        <section id="system">
+            <h2>Système</h2>
+            <p>Gérez les paramètres système de votre navigateur.</p>
+        </section>
+        <section id="about">
+            <h2>À propos de TEXTA web</h2>
+            <p>Version : 1.0.0</p>
+            <p>Développé par TEXTA Inc</p>
+            <p>© 2025 TEXTA web | Tous droits réservés</p>
+            <!-- Vérifier les mise à jours -->
+            <p>Vérifier les mises à jour : Non disponible</p>
+        </section>
+    </main>
+
+    <script>
+        const links = document.querySelectorAll('.side-bar a');
+        const sections = document.querySelectorAll('main section');
+
+        function showSection(id) {
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            const target = document.getElementById(id);
+            if (target) {
+                target.classList.add('active');
+            }
+        }
+
+        links.forEach(link => {
+            link.addEventListener('click', function (event) {
+                event.preventDefault();
+                const id = this.getAttribute('href').substring(1);
+                showSection(id);
+            });
+        });
+
+        // Affiche la première section si aucune ancre dans l'URL
+        if (location.hash) {
+            showSection(location.hash.substring(1));
+        } else {
+            showSection('services');
+        }
+    </script>
+</body>
+</html>
