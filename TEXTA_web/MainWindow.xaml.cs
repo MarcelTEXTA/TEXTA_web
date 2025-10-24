@@ -3,6 +3,7 @@ using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using Microsoft.Web.WebView2.Core;
 using Microsoft.Web.WebView2.Wpf;
 
 namespace TEXTA_web
@@ -57,6 +58,35 @@ namespace TEXTA_web
                 AddPlusTab();
 
                 _isChangingTab = false;
+            }
+        }
+
+        private void Show_Web_Menu(object sender, RoutedEventArgs e)
+        {
+            // afficher le menu contextuel
+            if (sender is FrameworkElement)
+            {
+                ContextMenu menuBoutonActif = new ContextMenu();
+
+                MenuItem newTabItem = new MenuItem { Header = "Nouvel onglet" };
+                newTabItem.Click += (s, args) => OpenNewTab();
+                menuBoutonActif.Items.Add(newTabItem);
+                MenuItem newWin = new MenuItem { Header = "Nouvelle fenêtre" };
+                newWin.Click += (s, args) =>
+                {
+                    MainWindow newWindow = new MainWindow();
+                    newWindow.Show();
+                };
+                menuBoutonActif.Items.Add(newWin);
+                MenuItem NewPrivateWin = new MenuItem { Header = "Nouvelle fenêtre navigation privée" };
+                NewPrivateWin.Click += (s, args) =>
+                {
+                    MainWindow newWindow = new MainWindow();
+                    newWindow.Show();
+                };
+                menuBoutonActif.Items.Add(NewPrivateWin);
+
+                menuBoutonActif.IsOpen = true;
             }
         }
 
@@ -279,7 +309,7 @@ namespace TEXTA_web
                 if (profile != null)
                 {
                     // Efface le cache et les données de navigation
-                    profile.ClearBrowsingDataAsync(CoreWebView2BrowsingDataKinds.All);
+                    profile.ClearBrowsingDataAsync(CoreWebView2BrowsingDataKinds.AllSite);
                 }
             }
         }

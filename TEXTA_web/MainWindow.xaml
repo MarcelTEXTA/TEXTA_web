@@ -3,10 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:svg="http://sharpvectors.codeplex.com/runtime/"
         xmlns:local="clr-namespace:TEXTA_web"
         mc:Ignorable="d"
+        Icon="/Assets/IconWeb.ico"
         WindowStyle="None"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="600" Width="1200" AllowDrop="True">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="35
@@ -18,31 +20,37 @@
 
             <!-- Gauche -->
             <StackPanel MouseLeftButtonDown="TitleBar_MouseLeftButtonDown" Orientation="Horizontal" DockPanel.Dock="Left" Margin="5,0">
-                <Button Width="50" Padding="7">
-                    <Image Width="24" Source="/Assets/opt.png"/>
+                <Button Click="Show_Web_Menu" Background="Transparent" BorderBrush="Transparent" Width="50" Padding="7">
+                    <!--<Viewbox>
+                        <Canvas Width="24" Height="24">
+                            <Path Data="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+                            
+                        </Canvas>
+                    </Viewbox> -->
+                    <Image Width="18" Source="/Assets/opt.png"/>
                 </Button>
-                <Button Width="50" Padding="7">
-                    <Image Width="24" Source="/Assets/actualiser.png"/>
+                <Button Background="Transparent" BorderBrush="Transparent" Width="50" Padding="7">
+                    <Image Width="18" Source="/Assets/annuler.png"/>
                 </Button>
-                <Button Width="50" Padding="7">
-                    <Image Source="/Assets/undo.png"/>
+                <Button Background="Transparent" BorderBrush="Transparent" Width="50" Padding="7">
+                    <Image Width="18" Source="/Assets/refaire.png"/>
                 </Button>
-                <Button Width="50" Padding="7">
-                    <Image Source="/Assets/restore.png"/>
+                <Button Background="Transparent" BorderBrush="Transparent" Width="50" Padding="7">
+                    <Image Width="18" Source="/Assets/actualiser.png"/>
                 </Button>
             </StackPanel>
 
             <!-- Droite -->
             <StackPanel MouseLeftButtonDown="TitleBar_MouseLeftButtonDown" Orientation="Horizontal" DockPanel.Dock="Right" HorizontalAlignment="Right">
-                <Button Background="Transparent" BorderBrush="Transparent" Content="—" Width="45" Click="Minimize_Click"/>
-                <Button Background="Transparent" BorderBrush="Transparent" Content="☐" Width="45" Click="Maximize_Click"/>
-                <Button Background="Transparent" BorderBrush="Transparent" Content="✕" Width="45" Click="Close_Click"/>
+                <Button Background="Transparent" BorderBrush="Transparent" Foreground="Black" Content="—" Width="45" Click="Minimize_Click"/>
+                <Button Background="Transparent" BorderBrush="Transparent" Foreground="Black" Content="☐" Width="45" Click="Maximize_Click"/>
+                <Button Background="Transparent" BorderBrush="Transparent" Foreground="Black" Content="✕" Width="45" Click="Close_Click"/>
             </StackPanel>
 
             <!-- Centre -->
             <StackPanel MouseLeftButtonDown="TitleBar_MouseLeftButtonDown" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Button Content="Infos"/>
-                <TextBox Width="250" Margin="5" VerticalAlignment="Center" 
+                <TextBox Width="450" Margin="0" Padding="3" VerticalAlignment="Center" 
                  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                 <Button Content="Share"/>
             </StackPanel>
