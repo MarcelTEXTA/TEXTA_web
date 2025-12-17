@@ -5,15 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New tab</title>
     <style>
-        /* Fond avec image et overlay sombre */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             min-height: 100vh;
-            color: #eee;
-            background: 
-                linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-                url('bg.png') no-repeat center center fixed;
+            color: #252525;
+            background: url('bg3.png');
+            background-position: center;
+            background-attachment: fixed;
             background-size: cover;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
@@ -35,6 +34,7 @@
             margin-top: 40px;
             margin-bottom: 40px;
             color: #fff;
+            font-style: normal;
             text-shadow: 0 3px 10px rgba(0, 0, 0, 0.7);
         }
 
@@ -61,12 +61,13 @@
             font-size: 1.2rem;
             border: none;
             outline: none;
-            color: #fff;
+            color: #252525;
             background: transparent;
             font-weight: 500;
-            ::placeholder {
-                color: #ddd;
-            }
+        }
+
+        .search-bar input::placeholder {
+            color: #252525;
         }
 
         .search-bar button {
@@ -74,7 +75,7 @@
             font-size: 1.2rem;
             border: none;
             background-color: rgb(150, 150, 250);
-            color: white;
+            color: #fff;
             font-weight: 600;
             cursor: pointer;
             transition: background-color 0.3s ease;
@@ -94,10 +95,11 @@
 
         .quick-links a {
             text-decoration: none;
-            color: #fff;
+            color: #252525;
             padding: 18px 0;
             background-color: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(15px);
+            backdrop-filter: blur(10px);
+            border-top: #fff 1px;
             border-radius: 15px;
             width: calc(25% - 15px);
             text-align: center;
@@ -113,22 +115,15 @@
             box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
         }
 
-        .widgets {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 60px;
-            gap: 25px;
-            flex-wrap: wrap;
-        }
-
-        .widget {
+        .info {
             background-color: rgba(255, 255, 255, 0.12);
-            backdrop-filter: blur(20px);
+            backdrop-filter: blur(25px);
             border-radius: 20px;
             padding: 30px 25px;
-            width: 30%;
+            margin-top: 25px;
+            margin-bottom: 25px;
             min-width: 280px;
-            color: #fff;
+            color: #252525;
             box-shadow: 0 10px 20px rgba(0,0,0,0.3);
             transition: transform 0.3s ease, background-color 0.3s ease;
             font-weight: 600;
@@ -137,44 +132,66 @@
             align-items: center;
         }
 
-        .widget h3 {
-            font-size: 1.8rem;
+        .info h1 {
+            font-size: 18pt;
             margin-bottom: 15px;
             letter-spacing: 1.2px;
             text-shadow: 0 1px 4px rgba(0,0,0,0.5);
         }
 
-        .widget p {
+        .info p {
             font-size: 1.3rem;
             margin: 10px 0 0 0;
-            color: #ddd;
+            color: #252525;
             text-align: center;
             min-height: 36px;
         }
 
-        .widget .value {
-            font-size: 2.4rem;
-            font-weight: 700;
-            margin-top: 6px;
-            color: #ffd54f;
-            text-shadow: 0 0 8px #ffd54f;
+        .customise-page {
+            display: flex;
+            justify-content: right;
+            margin-top: 50px;
         }
 
-        .widget .error {
-            font-size: 1.2rem;
-            color: #ff6b6b;
-            font-weight: 700;
-            margin-top: 6px;
-        }
-
-        footer {
+        .customise-page button {
+            text-decoration: none;
+            color: #252525;
+            padding: 18px 0;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-top: #fff 1px;
+            border: none;
+            border-radius: 15px;
+            width: calc(25% - 15px);
             text-align: center;
-            padding: 30px 0;
-            background-color: rgba(0, 0, 0, 0.75);
-            color: #ccc;
-            margin-top: 80px;
-            font-size: 1rem;
+            font-weight: 600;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+            transition: all 0.25s ease;
             user-select: none;
+        }
+
+        .customise-page button:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+        }
+
+        .search-bar .info .customise-page .quick-links {
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        .light {
+            position: absolute;
+            width: 150%;
+            height: 150%;
+            top: -25%;
+            left: -25%;
+            background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(255,255,255,0.4), transparent 60%);
+            mix-blend-mode: screen;
+            pointer-events: none;
+            transition: background-position 0.5s linear;
         }
 
         @media (max-width: 768px) {
@@ -197,99 +214,64 @@
 
     <main>
         <!-- Message de bienvenue -->
-        <div class="welcome">Bienvenue sur TEXTA web</div>
+        <div class="welcome">TEXTA web</div>
 
         <!-- Barre de recherche -->
-        <div class="search-bar">
+        <div class="search-bar" id="glass">
+            <div class="light"></div>
             <form action="https://search.brave.com/" method="GET">
                 <input type="text" name="q" placeholder="Rechercher sur le web...">
                 <button type="submit">Rechercher</button>
             </form>
         </div>
 
-        <div class="info">
-            <h1>Créez votre page web !</h1>
-            <p>La version dev preview vous propose de faire votre page web</p>
-        </div>
-
         <!-- Liens rapides -->
-        <div class="quick-links">
+        <div class="quick-links" id="glass">
+            <div class="light"></div>
             <a href="page/Ethan Macaluso/TEXTA/index.html">TEXTA</a>
             <a href="page/Anton Macaluso/Paradise Band/index.html">The Paradise Band</a>
         </div>
 
-        <!-- Widgets -->
-        <div class="widgets">
-            <!-- Widget Météo -->
-            <div class="widget" id="weather-widget">
-                <h3>Météo</h3>
-                <p id="weather-location">Chargement...</p>
-                <p id="weather-temp">Chargement...</p>
-                <p id="weather-error" class="error"></p> <!-- Message d'erreur -->
-            </div>
-
-            <!-- Widget Vitesse du Processus -->
-            <div class="widget" id="process-speed-widget">
-                <h3>Vitesse du processus</h3>
-                <p id="process-speed">Calcul en cours...</p>
-            </div>
-
-            <!-- Widget Heure -->
-            <div class="widget" id="clock-widget">
-                <h3>Heure actuelle</h3>
-                <p id="current-time">Chargement...</p>
-            </div>
+        <div class="info" id="glass">
+            <div class="light"></div>
+            <h1>Créez votre page web !</h1>
+            <p>La version dev preview vous propose de faire votre page web</p>
+            <p>Contactez <a href="mailto:spprttexta@gmail.com">spprttexta@gmail.com</a></p>
         </div>
 
-        <!-- Pied de page -->
-        <footer>
-            <p>© 2025 TEXTA web | Tous droits réservés</p>
-        </footer>
+        <div class="customise-page" id="glass">
+            <div class="light"></div>
+            <button id="customise-page">Personaliser</button>
+        </div>
     </main>
 
+    <!-- Boite de dialoge de personalisation -->
+
+    <dialog id="customise-page-dialog">
+
+    </dialog>
+
     <script>
-        // Météo (API de météo)
-        async function getWeather() {
-            const apiKey = 'votre_clé_API';
-            const city = 'Liège';  // Modifier la ville
-            const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&lang=fr&appid=${apiKey}`;
+        // Personnalisation de la page (fonctionnalité de base)
+        document.getElementById('customise-page').addEventListener('click', () => {
+            alert('Fonction de personnalisation à venir !');
 
-            try {
-                const response = await fetch(url);
-                const data = await response.json();
-                if (data.cod === 200) {
-                    document.getElementById('weather-location').textContent = `${data.name}, ${data.sys.country}`;
-                    document.getElementById('weather-temp').textContent = `${Math.round(data.main.temp)}°C`;
-                    document.getElementById('weather-error').textContent = ''; // Reset error message
-                } else {
-                    throw new Error('Données non disponibles');
-                }
-            } catch (error) {
-                document.getElementById('weather-location').textContent = 'Erreur';
-                document.getElementById('weather-temp').textContent = 'Impossible de récupérer les données';
-                document.getElementById('weather-error').textContent = 'Erreur de connexion ou d\'API';
-            }
-        }
-        getWeather();
+        });
 
-        // Vitesse du processus (simulation)
-        function calculateProcessSpeed() {
-            let startTime = performance.now();
-            // Effectuer une tâche fictive (par exemple, une boucle)
-            for (let i = 0; i < 1000000; i++) {}
-            let endTime = performance.now();
-            let duration = endTime - startTime;
-            document.getElementById('process-speed').textContent = `Temps de calcul : ${duration.toFixed(2)} ms`;
-        }
-        calculateProcessSpeed();
+        const glass = document.querySelectorAll('#glass');
+        const light = document.querySelector('.light');
 
-        // Heure actuelle
-        function updateClock() {
-            const currentTime = new Date().toLocaleTimeString();
-            document.getElementById('current-time').textContent = currentTime;
-        }
-        setInterval(updateClock, 1000); // Actualiser chaque seconde
-        updateClock();
+        document.addEventListener('mousemove', (e) => {
+            const rect = glass.getBoundingClientRect();
+            const x = ((e.clientX - rect.left) / rect.width) * 100;
+            const y = ((e.clientY - rect.top) / rect.height) * 100;
+            light.style.setProperty('--x', `${x}%`);
+            light.style.setProperty('--y', `${y}%`);
+
+            const offsetX = (x - 50) / 30;
+            const offsetY = (y - 50) / 30;
+            glass.style.transform = `rotateX(${offsetY}deg) rotateY(${offsetX}deg)`;
+        });
     </script>
 </body>
 </html>
