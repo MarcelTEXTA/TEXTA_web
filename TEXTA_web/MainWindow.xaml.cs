@@ -34,14 +34,15 @@ namespace TEXTA_web
         private void InitTabs()
         {
             MainTabControl.Items.Clear();
-            AddNewTab(); // Premier onglet
+            AddNewTab(); // Premier onglet (par défaut)
             AddPlusTab(); // Onglet "+"
         }
 
         private void AddPlusTab()
         {
-            var plusTab = new TabItem { Header = "+", IsEnabled = true };
+            var plusTab = new TabItem { Header = "Nouvel onglet", IsEnabled = true };
             MainTabControl.Items.Add(plusTab);
+            // Style optionnel pour centrer le "+" (pas de background ni bordure
         }
 
         private void MainTabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -85,6 +86,17 @@ namespace TEXTA_web
                     newWindow.Show();
                 };
                 menuBoutonActif.Items.Add(NewPrivateWin);
+
+                MenuItem separator = new MenuItem { IsEnabled = false };
+                menuBoutonActif.Items.Add(separator);
+
+                MenuItem closeTabItem = new MenuItem { Header = "Fermer l'onglet" };
+                closeTabItem.Click += (s, args) => CloseCurrentTab();
+                menuBoutonActif.Items.Add(closeTabItem);
+
+                MenuItem closeOtherTabsItem = new MenuItem { Header = "Fermer les autres onglets" };
+                closeOtherTabsItem.Click += (s, args) => CloseOtherTabs();
+                menuBoutonActif.Items.Add(closeOtherTabsItem);
 
                 menuBoutonActif.IsOpen = true;
             }
@@ -318,6 +330,154 @@ namespace TEXTA_web
         {
             // WebView2 ne fournit pas d'API directe pour effacer l'historique de navigation.
             // Cependant, vous pouvez réinitialiser le contrôle WebView2 pour effacer l'historique.
+            if (MainTabControl.SelectedItem is TabItem selected &&
+                selected.Content is WebView2 browser)
+            {
+                browser.Dispose();
+                var newBrowser = new WebView2();
+                selected.Content = newBrowser;
+                newBrowser.Loaded += async (s, e) =>
+                {
+                    await newBrowser.EnsureCoreWebView2Async(null);
+                };
+            }
+        }
+
+        public void ClearAllData()
+        {
+            ClearCookies();
+            ClearCache();
+            ClearHistory();
+        }
+
+        public void EnablePrivateBrowsingMode()
+        {
+            // WebView2 ne supporte pas directement le mode navigation privée.
+            // Cependant, vous pouvez créer un profil temporaire pour simuler ce comportement.
+            if (MainTabControl.SelectedItem is TabItem selected &&
+                selected.Content is WebView2 browser)
+            {
+                browser.Dispose();
+                var newBrowser = new WebView2();
+                selected.Content = newBrowser;
+                newBrowser.Loaded += async (s, e) =>
+                {
+                    var env = await CoreWebView2Environment.CreateAsync(null, null, new CoreWebView2EnvironmentOptions("--incognito"));
+                    await newBrowser.EnsureCoreWebView2Async(env);
+                };
+            }
+        }
+
+        public void DisablePrivateBrowsingMode()
+        {
+            // Cette fonctionnalité n'est pas directement supportée par WebView2.
+            if (MainTabControl.SelectedItem is TabItem selected &&
+                selected.Content is WebView2 browser)
+            {
+                browser.Dispose();
+                var newBrowser = new WebView2();
+                selected.Content = newBrowser;
+                newBrowser.Loaded += async (s, e) =>
+                {
+                    await newBrowser.EnsureCoreWebView2Async(null);
+                };
+            }
+        }
+
+        public void ClearPrivateData()
+        {
+            ClearAllData();
+        }
+
+        public void SetTrackingProtection(bool enable)
+        {
+            if (MainTabControl.SelectedItem is TabItem selected &&
+                selected.Content is WebView2 browser)
+            {
+                browser.Dispose();
+                var newBrowser = new WebView2();
+                selected.Content = newBrowser;
+                newBrowser.Loaded += async (s, e) =>
+                {
+                    var options = enable ? "--enable-features=TrackingPrevention" : "--disable-features=TrackingPrevention";
+                    var env = await CoreWebView2Environment.CreateAsync(null, null, new CoreWebView2EnvironmentOptions(options));
+                    await newBrowser.EnsureCoreWebView2Async(env);
+                };
+            }
+        }
+
+        public void ClearSiteData(string url)
+        {
+            if (MainTabControl.SelectedItem is TabItem selected &&
+                selected.Content is WebView2 browser &&
+                browser.CoreWebView2 != null)
+            {
+                var uri = new Uri(url);
+                browser.CoreWebView2.Profile.ClearBrowsingDataAsync(CoreWebView2BrowsingDataKinds.AllSite);
+            }
+        }
+
+        public void SetDoNotTrack(bool enable)
+        {
+            if (MainTabControl.SelectedItem is TabItem selected &&
+                selected.Content is WebView2 browser)
+            {
+                browser.Dispose();
+                var newBrowser = new WebView2();
+                selected.Content = newBrowser;
+                newBrowser.Loaded += async (s, e) =>
+                {
+                    var options = enable ? "--enable-features=DoNotTrack" : "--disable-features=DoNotTrack";
+                    var env = await CoreWebView2Environment.CreateAsync(null, null, new CoreWebView2EnvironmentOptions(options));
+                    await newBrowser.EnsureCoreWebView2Async(env);
+                };
+            }
+        }
+
+        public void ClearDownloads()
+        {
+            // WebView2 ne fournit pas d'API pour gérer les téléchargements.
+            // Pour l'instant, cette fonctionnalité n'est pas implémentée.
+        }
+
+        public void ClearFormData()
+        {
+            // WebView2 ne fournit pas d'API directe pour effacer les données de formulaire.
+            // Cette fonctionnalité n'est pas implémentée pour l'instant.
+            if (MainTabControl.SelectedItem is TabItem selected &&
+                selected.Content is WebView2 browser)
+            {
+                browser.Dispose();
+                var newBrowser = new WebView2();
+                selected.Content = newBrowser;
+                newBrowser.Loaded += async (s, e) =>
+                {
+                    await newBrowser.EnsureCoreWebView2Async(null);
+                };
+            }
+        }
+
+        public void ClearPasswords()
+        {
+            // WebView2 ne fournit pas d'API directe pour effacer les mots de passe enregistrés.
+            // Cette fonctionnalité n'est pas implémentée pour l'instant.
+            if (MainTabControl.SelectedItem is TabItem selected &&
+                selected.Content is WebView2 browser)
+            {
+                browser.Dispose();
+                var newBrowser = new WebView2();
+                selected.Content = newBrowser;
+                newBrowser.Loaded += async (s, e) =>
+                {
+                    await newBrowser.EnsureCoreWebView2Async(null);
+                };
+            }
+        }
+
+        public void ClearAutofillData()
+        {
+            // WebView2 ne fournit pas d'API directe pour effacer les données de saisie automatique.
+            // Cette fonctionnalité n'est pas implémentée pour l'instant.
             if (MainTabControl.SelectedItem is TabItem selected &&
                 selected.Content is WebView2 browser)
             {

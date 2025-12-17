@@ -30,13 +30,13 @@
                     <Image Width="18" Source="/Assets/opt.png"/>
                 </Button>
                 <Button Background="Transparent" BorderBrush="Transparent" Width="50" Padding="7">
-                    <Image Width="18" Source="/Assets/annuler.png"/>
+                    <Image Width="16" Source="/Assets/annuler.png"/>
                 </Button>
                 <Button Background="Transparent" BorderBrush="Transparent" Width="50" Padding="7">
-                    <Image Width="18" Source="/Assets/refaire.png"/>
+                    <Image Width="16" Source="/Assets/refaire.png"/>
                 </Button>
                 <Button Background="Transparent" BorderBrush="Transparent" Width="50" Padding="7">
-                    <Image Width="18" Source="/Assets/actualiser.png"/>
+                    <Image Width="16" Source="/Assets/actualiser.png"/>
                 </Button>
             </StackPanel>
 
@@ -50,9 +50,11 @@
             <!-- Centre -->
             <StackPanel MouseLeftButtonDown="TitleBar_MouseLeftButtonDown" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Button Content="Infos"/>
-                <TextBox Width="450" Margin="0" Padding="3" VerticalAlignment="Center" 
+                <TextBox x:Name="navbar"  Width="450" Margin="0" Padding="3" VerticalAlignment="Center" 
                  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-                <Button Content="Share"/>
+                <Button Background="Transparent" BorderBrush="Transparent">
+                    <Image Width="20" Source="/Assets/share.png"/>
+                </Button>
             </StackPanel>
 
         </Grid>

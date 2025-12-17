@@ -185,6 +185,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Assets\share.png" />
     <Resource Include="IconWeb.ico" />
     <Resource Include="Assets\bg.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -194,7 +195,9 @@
     <Resource Include="Assets\annuler.png" />
     <Content Include="Assets\annuler.svg" />
     <Resource Include="Assets\bg2.png" />
-    <Resource Include="Assets\bg3.png" />
+    <Resource Include="Assets\bg3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Assets\bg4.png" />
     <Content Include="Assets\cert_error.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
