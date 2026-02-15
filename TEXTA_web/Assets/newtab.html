@@ -10,7 +10,7 @@
             margin: 0;
             min-height: 100vh;
             color: #252525;
-            background: url('bg3.png');
+            background: url('bg.png');
             background-position: center;
             background-attachment: fixed;
             background-size: cover;
@@ -27,7 +27,7 @@
             margin-right: auto;
         }
 
-        .welcome {
+        .header {
             font-size: 3.5rem;
             font-weight: 700;
             text-align: center;
@@ -49,7 +49,7 @@
             width: 100%;
             max-width: 600px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-            border-radius: 15px;
+            border-radius: 20px;
             overflow: hidden;
             background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(10px);
@@ -57,7 +57,7 @@
 
         .search-bar input {
             flex-grow: 1;
-            padding: 15px 20px;
+            padding: 10px 15px;
             font-size: 1.2rem;
             border: none;
             outline: none;
@@ -71,7 +71,7 @@
         }
 
         .search-bar button {
-            padding: 15px 30px;
+            padding: 10px 20px;
             font-size: 1.2rem;
             border: none;
             background-color: rgb(150, 150, 250);
@@ -85,84 +85,24 @@
             background-color: rgb(125, 125, 250);
         }
 
-        .quick-links {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 50px;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .quick-links a {
-            text-decoration: none;
-            color: #252525;
-            padding: 18px 0;
-            background-color: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-top: #fff 1px;
-            border-radius: 15px;
-            width: calc(25% - 15px);
-            text-align: center;
-            font-weight: 600;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
-            transition: all 0.25s ease;
-            user-select: none;
-        }
-
-        .quick-links a:hover {
-            background-color: rgba(255, 255, 255, 0.3);
-            transform: translateY(-6px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
-        }
-
-        .info {
-            background-color: rgba(255, 255, 255, 0.12);
-            backdrop-filter: blur(25px);
-            border-radius: 20px;
-            padding: 30px 25px;
-            margin-top: 25px;
-            margin-bottom: 25px;
-            min-width: 280px;
-            color: #252525;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-            transition: transform 0.3s ease, background-color 0.3s ease;
-            font-weight: 600;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .info h1 {
-            font-size: 18pt;
-            margin-bottom: 15px;
-            letter-spacing: 1.2px;
-            text-shadow: 0 1px 4px rgba(0,0,0,0.5);
-        }
-
-        .info p {
-            font-size: 1.3rem;
-            margin: 10px 0 0 0;
-            color: #252525;
-            text-align: center;
-            min-height: 36px;
-        }
-
-        .customise-page {
+        .footer {
             display: flex;
             justify-content: right;
-            margin-top: 50px;
+
+            /* en dessous de la page */
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: calc(100% - 40px);
         }
 
-        .customise-page button {
-            text-decoration: none;
+        .footer button {
             color: #252525;
-            padding: 18px 0;
+            padding: 10px 15px;
             background-color: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
-            border-top: #fff 1px;
             border: none;
-            border-radius: 15px;
-            width: calc(25% - 15px);
+            border-radius: 20px;
             text-align: center;
             font-weight: 600;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
@@ -170,28 +110,16 @@
             user-select: none;
         }
 
-        .customise-page button:hover {
+        .footer button:hover {
             background-color: rgba(255, 255, 255, 0.3);
-            transform: translateY(-6px);
             box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+            transition: all 0.25s ease;
         }
 
-        .search-bar .info .customise-page .quick-links {
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            overflow: hidden;
-        }
-
-        .light {
-            position: absolute;
-            width: 150%;
-            height: 150%;
-            top: -25%;
-            left: -25%;
-            background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(255,255,255,0.4), transparent 60%);
-            mix-blend-mode: screen;
-            pointer-events: none;
-            transition: background-position 0.5s linear;
+        .footer button:active {
+            background-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 18px 36px rgba(0, 0, 0, 0.45);
+            transition: all 0.25s ease;
         }
 
         @media (max-width: 768px) {
@@ -214,33 +142,17 @@
 
     <main>
         <!-- Message de bienvenue -->
-        <div class="welcome">TEXTA web</div>
+        <div class="header">TEXTA web</div>
 
         <!-- Barre de recherche -->
-        <div class="search-bar" id="glass">
-            <div class="light"></div>
-            <form action="https://search.brave.com/" method="GET">
+        <div class="search-bar">
+            <form action="https://www.google.com/search" method="GET">
                 <input type="text" name="q" placeholder="Rechercher sur le web...">
                 <button type="submit">Rechercher</button>
             </form>
         </div>
 
-        <!-- Liens rapides -->
-        <div class="quick-links" id="glass">
-            <div class="light"></div>
-            <a href="page/Ethan Macaluso/TEXTA/index.html">TEXTA</a>
-            <a href="page/Anton Macaluso/Paradise Band/index.html">The Paradise Band</a>
-        </div>
-
-        <div class="info" id="glass">
-            <div class="light"></div>
-            <h1>Créez votre page web !</h1>
-            <p>La version dev preview vous propose de faire votre page web</p>
-            <p>Contactez <a href="mailto:spprttexta@gmail.com">spprttexta@gmail.com</a></p>
-        </div>
-
-        <div class="customise-page" id="glass">
-            <div class="light"></div>
+        <div class="footer">
             <button id="customise-page">Personaliser</button>
         </div>
     </main>
@@ -260,18 +172,6 @@
 
         const glass = document.querySelectorAll('#glass');
         const light = document.querySelector('.light');
-
-        document.addEventListener('mousemove', (e) => {
-            const rect = glass.getBoundingClientRect();
-            const x = ((e.clientX - rect.left) / rect.width) * 100;
-            const y = ((e.clientY - rect.top) / rect.height) * 100;
-            light.style.setProperty('--x', `${x}%`);
-            light.style.setProperty('--y', `${y}%`);
-
-            const offsetX = (x - 50) / 30;
-            const offsetY = (y - 50) / 30;
-            glass.style.transform = `rotateX(${offsetY}deg) rotateY(${offsetX}deg)`;
-        });
     </script>
 </body>
 </html>

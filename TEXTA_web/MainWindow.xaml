@@ -7,8 +7,7 @@
         xmlns:local="clr-namespace:TEXTA_web"
         mc:Ignorable="d"
         Icon="/Assets/IconWeb.ico"
-        WindowStyle="None"
-        Title="MainWindow" Height="600" Width="1200" AllowDrop="True">
+        Title="TEXTA web" Height="600" Width="1000" AllowDrop="True">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="35
@@ -42,9 +41,7 @@
 
             <!-- Droite -->
             <StackPanel MouseLeftButtonDown="TitleBar_MouseLeftButtonDown" Orientation="Horizontal" DockPanel.Dock="Right" HorizontalAlignment="Right">
-                <Button Background="Transparent" BorderBrush="Transparent" Foreground="Black" Content="—" Width="45" Click="Minimize_Click"/>
-                <Button Background="Transparent" BorderBrush="Transparent" Foreground="Black" Content="☐" Width="45" Click="Maximize_Click"/>
-                <Button Background="Transparent" BorderBrush="Transparent" Foreground="Black" Content="✕" Width="45" Click="Close_Click"/>
+                <Button Background="Transparent" BorderBrush="Transparent" Foreground="Black" Content="Tool" Width="45"/>
             </StackPanel>
 
             <!-- Centre -->

@@ -25,7 +25,7 @@
             <SolidColorBrush x:Key="TitleBarBrush" Color="{StaticResource TitleBarColor}"/>
 
             <!-- STYLE : BOUTON TITRE (barre du haut) -->
-            <Style x:Key="TitleBarButtonStyle" TargetType="Button">
+            <!--<Style x:Key="TitleBarButtonStyle" TargetType="Button">
                 <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
                 <Setter Property="FontWeight" Value="SemiBold"/>
                 <Setter Property="Background" Value="Transparent"/>
@@ -53,10 +53,10 @@
                         </ControlTemplate>
                     </Setter.Value>
                 </Setter>
-            </Style>
+            </Style>-->
 
             <!-- STYLE : BOUTON -->
-            <Style TargetType="Button" BasedOn="{StaticResource TitleBarButtonStyle}">
+            <!--<Style TargetType="Button" BasedOn="{StaticResource TitleBarButtonStyle}">
                 <Setter Property="Background" Value="{StaticResource AccentBrush}"/>
                 <Setter Property="Foreground" Value="White"/>
                 <Setter Property="Padding" Value="10,6"/>
@@ -83,10 +83,10 @@
                         </ControlTemplate>
                     </Setter.Value>
                 </Setter>
-            </Style>
+            </Style>-->
 
             <!-- STYLE : TEXTBOX -->
-            <Style TargetType="TextBox">
+            <!--<Style TargetType="TextBox">
                 <Setter Property="Background" Value="{StaticResource SurfaceBrush}"/>
                 <Setter Property="BorderBrush" Value="{StaticResource BorderBrushColor}"/>
                 <Setter Property="BorderThickness" Value="1"/>
@@ -115,7 +115,7 @@
                         </ControlTemplate>
                     </Setter.Value>
                 </Setter>
-            </Style>
+            </Style>-->
 
             <!-- === STYLE : TABCONTROL / TABITEM  -->
             <!--<Style TargetType="TabControl">
