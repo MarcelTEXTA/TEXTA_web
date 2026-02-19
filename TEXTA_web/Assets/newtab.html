@@ -122,18 +122,91 @@
             transition: all 0.25s ease;
         }
 
-        @media (max-width: 768px) {
-            .quick-links a {
-                width: 48%;
-            }
-            .widgets {
-                flex-direction: column;
-                gap: 25px;
-            }
-            .widget {
-                width: 100%;
-                min-width: unset;
-            }
+        /* Boite de dialoge de personnalisation */
+
+        dialog {
+            width: 80%;
+            max-width: 800px;
+            max-height: 500px;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            background-color: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(15px);
+            padding: auto;
+        }
+
+        dialog .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            border-bottom: 1px solid #ddd;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 0;
+            padding: 10px 20px;
+        }
+
+        dialog .header button {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #252525;
+        }
+
+        dialog .header span {
+            padding-top: 2px;
+            color: #252525;
+            text-shadow: none;
+        }
+
+        dialog main {
+            display: flex;
+            padding: 0px;
+        }
+
+        dialog .side-bar {
+            width: 200px;
+            padding-right: 20px;
+        }
+
+        dialog .side-bar button {
+            display: block;
+            width: 100%;
+            padding: 10px 15px;
+            border: none;
+            background-color: transparent;
+            text-align: left;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        dialog .side-bar button:hover {
+            background-color: rgba(255, 255, 255, 0.25);
+        }
+
+        dialog .button-footer {
+            display: flex;
+            justify-content: flex-end;
+            padding: 15px 20px;
+            border-top: 1px solid #ddd;
+        }
+
+        dialog .button-footer button {
+            margin-left: 10px;
+            padding: 8px 15px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.25);
+            border-radius: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        dialog .button-footer button:hover {
+            background-color: rgba(255, 255, 255, 0.5);
         }
     </style>
 
@@ -160,18 +233,77 @@
     <!-- Boite de dialoge de personalisation -->
 
     <dialog id="customise-page-dialog">
-
+        <div class="header">
+            <span>Personnaliser la page</span>
+            <button id="close-dialog">×</button>
+        </div>
+        <main>
+            <div class="side-bar">
+                <button class="side-bar-button" data-section="general">Général</button>
+                <button class="side-bar-button" data-section="appearance">Apparence</button>
+                <button class="side-bar-button" data-section="widgets">Widgets</button>
+                <button class="side-bar-button" data-section="shortcuts">Liens rapides</button>
+            </div>
+            <div class="main-container">
+                <div id="general-settings" class="settings-section">
+                    <h2>Général</h2>
+                    <p>Paramètres généraux à venir...</p>
+                </div>
+                <div id="appearance-settings" class="settings-section" style="display: none;">
+                    <h2>Apparence</h2>
+                    <p>Paramètres d'apparence à venir...</p>
+                </div>
+                <div id="widgets-settings" class="settings-section" style="display: none;">
+                    <h2>Widgets</h2>
+                    <p>Paramètres de widgets à venir...</p>
+                </div>
+                <div id="shortcuts-settings" class="settings-section" style="display: none;">
+                    <h2>Liens rapides</h2>
+                    <p>Paramètres de liens rapides à venir...</p>
+                </div>
+            </div>
+        </main>
+        <div class="button-footer">
+            <button id="close-dialog">Annuler</button>
+            <button id="save-settings">Enregistrer</button>
+            <button id="reset-settings">Réinitialiser</button>
+        </div>
     </dialog>
 
     <script>
         // Personnalisation de la page (fonctionnalité de base)
         document.getElementById('customise-page').addEventListener('click', () => {
-            alert('Fonction de personnalisation à venir !');
-
+            //alert('Fonction de personnalisation à venir !');
+            const dialog = document.getElementById('customise-page-dialog');
+            if (typeof dialog.showModal === "function") {
+                dialog.showModal();
+            } else {
+                alert("Le navigateur ne supporte pas les dialogues modaux.");
+            }
         });
 
-        const glass = document.querySelectorAll('#glass');
-        const light = document.querySelector('.light');
+        document.getElementById('close-dialog').addEventListener('click', () => {
+            const dialog = document.getElementById('customise-page-dialog');
+            dialog.close();
+        });
+
+
+        // Gestion de la navigation dans les sections de personnalisation
+        const sideBarButtons = document.querySelectorAll('.side-bar-button');
+        const settingsSections = document.querySelectorAll('.settings-section');
+
+        sideBarButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const section = button.getAttribute('data-section');
+                settingsSections.forEach(sec => {
+                    if (sec.id === `${section}-settings`) {
+                        sec.style.display = 'block';
+                    } else {
+                        sec.style.display = 'none';
+                    }
+                });
+            });
+        });
     </script>
 </body>
 </html>

@@ -27,8 +27,8 @@ namespace TEXTA_web
 
         private void SplashScreen_Loaded(object sender, RoutedEventArgs e)
         {
-            // 10 secondes avant de fermer l'écran de démarrage et d'ouvrir la fenêtre principale
-            Task.Delay(10000).ContinueWith(_ =>
+            // 5 secondes avant de fermer l'écran de démarrage et d'ouvrir la fenêtre principale
+            Task.Delay(5000).ContinueWith(_ =>
             {
                 this.Dispatcher.Invoke(() =>
                 {

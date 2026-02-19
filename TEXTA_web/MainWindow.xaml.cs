@@ -56,7 +56,7 @@ namespace TEXTA_web
 
                 MainTabControl.Items.Remove(selected);
                 AddNewTab();
-                AddPlusTab();
+                //AddPlusTab();
 
                 _isChangingTab = false;
             }
@@ -118,8 +118,7 @@ namespace TEXTA_web
                 Padding = new Thickness(0),
                 Margin = new Thickness(2, 0, 0, 0),
                 Background = null,
-                BorderBrush = null,
-                Cursor = Cursors.Hand
+                BorderBrush = null
             };
 
             closeButton.Click += (s, e) =>
