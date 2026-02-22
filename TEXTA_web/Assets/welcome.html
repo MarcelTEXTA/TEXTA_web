@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bienvenue sur TEXTA web</title>
+
+<style>
+
+/* ===================== ANIMATIONS ===================== */
+
+@keyframes zoom-in {
+    0% {
+        transform: translateZ(-1000px);
+        opacity: 0;
+        filter: blur(5px);
+    }
+    50% {
+        transform: translateZ(0px);
+        opacity: 1;
+        filter: blur(0px);
+    }
+    100% {
+        transform: translateZ(1000px);
+        opacity: 0;
+        filter: blur(5px);
+    }
+}
+
+@keyframes reveal {
+    from {
+        opacity: 0;
+        transform: translateZ(-400px);
+    }
+    to {
+        opacity: 1;
+        transform: translateZ(0);
+    }
+}
+
+@keyframes float-scroll {
+    0% { transform: translate(-50%, 0px); }
+    50% { transform: translate(-50%, 10px); }
+    100% { transform: translate(-50%, 0px); }
+}
+
+/* ===================== GLOBAL ===================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+html {
+    block-size: 100%;
+    color-scheme: dark light;
+}
+
+body {
+    min-block-size: 400vh;
+    font-family: system-ui, sans-serif;
+    background-image: url(bg.png);
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+/* ===================== SCROLL INDICATOR ===================== */
+
+.scroll-indicator {
+    position: fixed;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    font-weight: 500;
+    
+    padding: 10px 20px;
+    border-radius: 30px;
+
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(10px);
+    color: white;
+
+    animation: float-scroll 2s ease-in-out infinite;
+    z-index: 1000;
+
+    opacity: 1;
+    transition: opacity 0.2s linear;
+}
+
+/* ===================== GRID ===================== */
+
+.stuck-grid {
+    block-size: 100svh;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+
+    display: grid;
+    grid-template: repeat(4, 25dvh) / repeat(4, 25dvw);
+    place-items: center;
+
+    position: sticky;
+    top: 0;
+    overflow: hidden;
+}
+
+.grid-item {
+    transform-style: preserve-3d;
+    font-size: 5vmin;
+    font-weight: 300;
+    text-wrap: nowrap;
+}
+
+/* Scroll animations */
+@supports (animation-timeline: scroll()) {
+
+    @media (prefers-reduced-motion: no-preference) {
+        .grid-item:not(.setup-link) {
+            animation: zoom-in linear both;
+            animation-timeline: scroll(root block);
+            will-change: transform, opacity, filter;
+        }
+    }
+
+    .grid-item:nth-child(1)  { animation-range: 5% 15%; }
+    .grid-item:nth-child(2)  { animation-range: 10% 20%; }
+    .grid-item:nth-child(3)  { animation-range: 15% 25%; }
+    .grid-item:nth-child(4)  { animation-range: 20% 30%; }
+    .grid-item:nth-child(5)  { animation-range: 25% 35%; }
+    .grid-item:nth-child(6)  { animation-range: 30% 40%; }
+    .grid-item:nth-child(7)  { animation-range: 35% 45%; }
+    .grid-item:nth-child(8)  { animation-range: 40% 50%; }
+    .grid-item:nth-child(9)  { animation-range: 45% 55%; }
+    .grid-item:nth-child(10) { animation-range: 50% 60%; }
+    .grid-item:nth-child(11) { animation-range: 55% 65%; }
+    .grid-item:nth-child(12) { animation-range: 60% 70%; }
+    .grid-item:nth-child(13) { animation-range: 65% 75%; }
+    .grid-item:nth-child(14) { animation-range: 70% 80%; }
+    .grid-item:nth-child(15) { animation-range: 75% 85%; }
+    .grid-item:nth-child(16) { animation-range: 80% 90%; }
+
+    .setup-link {
+        grid-row: 2 / span 2;
+        grid-column: 2 / span 2;
+
+        animation: reveal linear both;
+        animation-timeline: scroll(root block);
+        animation-range: 90% 100%;
+    }
+}
+
+.special {
+    grid-row: 2 / span 2;
+    grid-column: 2 / span 2;
+}
+
+.special b {
+    font-size: 12vmin;
+}
+
+/* ===================== SETUP BUTTON ===================== */
+
+.setup-link {
+    font-size: 3vmin;
+    opacity: 0;
+}
+
+.setup-link a {
+    text-decoration: none;
+    color: #252525;
+    padding: 10px 20px;
+    background-color: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    font-weight: 600;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+    transition: all 0.25s ease;
+}
+
+.setup-link a:hover {
+    background: rgba(255,255,255,0.25);
+    transform: scale(1.05);
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Scroll indicator -->
+<div class="scroll-indicator">
+    ↓ Faites défiler pour commencer ↓
+</div>
+
+<div class="stuck-grid">
+
+    <div class="grid-item">web-ui system</div>
+    <div class="grid-item">confidentialité</div>
+    <div class="grid-item">performance</div>
+    <div class="grid-item">créativité</div>
+
+    <div class="grid-item">HTML5</div>
+    <div class="grid-item">CSS moderne</div>
+    <div class="grid-item">JavaScript natif</div>
+    <div class="grid-item">moteur Chromium</div>
+
+    <div class="grid-item">navigation fluide</div>
+    <div class="grid-item">diversité numérique</div>
+    <div class="grid-item special"><b>2026 — TEXTA web</b></div>
+    <div class="grid-item">internet ouvert</div>
+
+    <div class="grid-item">intelligence artificielle</div>
+    <div class="grid-item">UX expressive</div>
+    <div class="grid-item">innovation</div>
+    <div class="grid-item">éthique numérique</div>
+
+    <div class="grid-item setup-link">
+        <a href="setup.html">Commencer la configuration</a>
+    </div>
+
+</div>
+
+<script>
+
+/* Fade-out progressif en fonction du scroll */
+
+window.addEventListener("scroll", () => {
+    const indicator = document.querySelector(".scroll-indicator");
+    const maxFade = 200; // distance en px pour disparition complète
+
+    const opacity = 1 - Math.min(window.scrollY / maxFade, 1);
+    indicator.style.opacity = opacity;
+});
+
+</script>
+
+</body>
+</html>

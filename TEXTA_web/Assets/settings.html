@@ -1,156 +1,293 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paramètres de TEXTA web</title>
     <style>
-    body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: rgb(240, 240, 240);
-        color: rgb(25, 25, 25);
-    }
+        :root {
+            --background: rgb(255, 255, 255);
+            --background-element: rgba(200, 200, 200, 0.2);
+            --background-element-hover: rgba(200, 200, 200, 0.4);
+            --text-color: #252525;
+            --box-sahadow: rgba(0, 0, 0, 0.25);
+        }
 
-    .side-bar {
-        width: 250px;
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100%;
-        background-color: rgb(200, 200, 200);
-        padding: 20px;
-    }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background);
+            color: var(--text-color);
+        }
 
-    .side-bar ul {
-        list-style: none;
-        padding: 0;
-    }
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2px 20px;
+            margin: 0;
+        }
 
-    .side-bar ul li {
-        margin: 10px 0;
-    }
+        .top-bar h1 {
+            font-size: 20px;
+            margin: 5px 0;
+        }
 
-    .side-bar ul li a {
-        text-decoration: none;
-        font-size: 16px;
-        color: rgb(25, 25, 25);
-    }
+        .app-tabs {
+            display: flex;
+            gap: 10px;
+            background-color: var(--background-element);
+            border-radius: 20px;
+            padding: 3px;
+            margin-top: 5px;
+            box-shadow: 0 0 12px var(--box-sahadow);
+        }
 
-    .side-bar ul:focus {
-        background-color: rgb(225, 225, 225);
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
+        .app-tabs a {
+            text-decoration: none;
+            color: var(--text-color);
+            padding: 2px 10px;
+            border-radius: 20px;
+            transition: background-color 0.3s ease;
+        }
 
-    main {
-        margin-left: 270px;
-        padding: 20px;
-    }
+        .app-tabs a:hover {
+            background-color: var(--background-element-hover);
+        }
 
-    section {
-        display: none;
-        margin-bottom: 20px;
-        padding: 15px;
-    }
+        .app-tabs a.active {
+            background-color: var(--background-element-hover);
+        }
 
-    section.active {
-        display: block;
-    }
+        .top-bar button {
+            padding: 8px;
+            border: none;
+            border-radius: 20px;
+            background-color: var(--background-element);
+            color: var(--text-color);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 0 12px var(--box-sahadow);
+        }
 
-    section h2 {
-        margin-top: 0;
-        color: #333;
-    }
+        .top-bar button:hover {
+            background-color: var(--background-element-hover);
+        }
+
+        .side-bar {
+            margin: 5px;
+            width: 250px;
+            position: fixed;
+            left: 0;
+            background-color: var(--background-element);
+            border-radius: 20px;
+            padding: 20px;
+        }
+
+        .side-bar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .side-bar ul li {
+            margin: 10px 0;
+        }
+
+        .side-bar ul li a {
+            text-decoration: none;
+            font-size: 16px;
+            color: var(--text-color);
+        }
+
+        .side-bar ul:focus {
+            background-color: var(--background);
+            box-shadow: 0 6px 12px var(--box-sahadow);
+        }
+
+        main {
+            margin-left: 270px;
+            padding: 20px;
+        }
+
+        section {
+            display: none;
+            margin-bottom: 20px;
+            padding: 15px;
+        }
+
+        section.active {
+            display: block;
+        }
+
+        section h2 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .section-content {
+            display: default;
+            margin: 15px 0;
+            padding: 15px;
+            background-color: var(--background-element);
+            border-radius: 20px;
+            box-shadow: 0 0 8px var(--box-sahadow);
+            transition: background-color 0.3s ease;
+        }
+
+        .section-content {
+            display: block;
+            margin: 10px 0;
+            padding: 10px 15px;
+            border-radius: 15px;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: all 0.25s ease;
+        }
+
+        .section-content a.section-element:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .section-content .radio-button {
+            display: block;
+        }
     </style>
 </head>
+
 <body>
-    <div class="side-bar">
-        <ul>
-            <li><a href="#services">Vous et nos services</a></li>
-            <li><a href="#apparence">Apparence</a></li>
-            <li><a href="#search">Recherche</a></li>
-            <li><a href="#security">Sécurité et confidentialité</a></li>
-            <li><a href="#privacy">Vie privée</a></li>
-            <li><a href="#sync">Synchronisations</a></li>
-            <li><a href="#extensions">Extensions</a></li>
-            <br>
-            <li><a href="#passwords">Saisie automatique mots de passe</a></li>
-            <li><a href="#languages">Langues</a></li>
-            <li><a href="#downloads">Téléchargements</a></li>
-            <li><a href="#accessibility">Accessibilité</a></li>
-            <li><a href="#system">Système</a></li>
-            <li><a href="#about">À propos de TEXTA web</a></li>
-        </ul>
+    <div class="app-settings">
+        <div class="top-bar">
+            <h1>TEXTA web</h1>
+            <div class="app-tabs">
+                <a href="settings.html" class="tab active">Paramètres</a>
+                <a href="history.html" class="tab">Historique</a>
+                <a href="downloads.html" class="tab">Téléchargements</a>
+                <a href="bookmarks.html" class="tab">Signets</a>
+                <a href="extensions.html" class="tab">Extensions</a>
+            </div>
+            <button>Aide</button>
+        </div>
+        <div class="main-container-app">
+            <div class="side-bar">
+                <ul>
+                    <li><a href="#services">Vous et nos services</a></li>
+                    <li><a href="#apparence">Apparence</a></li>
+                    <li><a href="#search">Recherche</a></li>
+                    <li><a href="#security">Sécurité et confidentialité</a></li>
+                    <li><a href="#privacy">Vie privée</a></li>
+                    <li><a href="#sync">Synchronisations</a></li>
+                    <li><a href="#extensions">Extensions</a></li>
+                    <br>
+                    <li><a href="#passwords">Saisie automatique mots de passe</a></li>
+                    <li><a href="#languages">Langues</a></li>
+                    <li><a href="#downloads">Téléchargements</a></li>
+                    <li><a href="#accessibility">Accessibilité</a></li>
+                    <li><a href="#system">Système</a></li>
+                    <li><a href="#about">À propos de TEXTA web</a></li>
+                </ul>
+            </div>
+
+            <main>
+                <!-- ===== Sections principales ===== -->
+                <section id="services" class="active">
+                    <h2 class="section-title">Vous et nos services</h2>
+                    <div class="section-content" id="profile">
+                        <a class="section-element" href="#profile">Votre profil</a>
+                        <a class="section-element" href="#import">Importation de données</a>
+                        <div class="section-element">
+                            <span>Au démarage :</span>
+                            <div class="radio-button">
+                                <input type="radio" id="newtab" name="startup" value="newtab" checked>
+                                <label for="newtab">Nouvel onglet</label>
+                            </div>
+                            <div class="radio-button">
+                                <input type="radio" id="continue" name="startup" value="continue">
+                                <label for="continue">Continuer là où vous vous êtes arrêté</label>
+                            </div>
+                            <div class="radio-button">
+                                <input type="radio" id="specific" name="startup" value="specific">
+                                <label for="specific">Ouvrir une page ou un ensemble de pages spécifiques</label>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="apparence">
+                    <h2>Apparence</h2>
+                    <p>Personnalisez l'apparence de votre navigateur.</p>
+                </section>
+
+                <section id="search">
+                    <h2>Recherche</h2>
+                    <p>Configurez vos préférences de recherche.</p>
+                </section>
+
+                <section id="security">
+                    <h2>Sécurité et confidentialité</h2>
+                    <p>Gérez vos paramètres de sécurité et de confidentialité.</p>
+                </section>
+
+                <section id="privacy">
+                    <h2>Vie privée</h2>
+                    <p>Contrôlez vos données personnelles et votre vie privée.</p>
+                </section>
+
+                <section id="sync">
+                    <h2>Synchronisations</h2>
+                    <p>Synchronisez vos données entre vos appareils.</p>
+                </section>
+
+                <section id="extensions">
+                    <h2>Extensions</h2>
+                    <p>Gérez vos extensions et modules complémentaires.</p>
+                </section>
+
+                <section id="passwords">
+                    <h2>Saisie automatique mots de passe</h2>
+                    <p>Gérez vos mots de passe et la saisie automatique.</p>
+                </section>
+
+                <section id="languages">
+                    <h2>Langues</h2>
+                    <p>Configurez vos préférences linguistiques.</p>
+                </section>
+
+                <section id="downloads">
+                    <h2>Téléchargements</h2>
+                    <p>Gérez vos paramètres de téléchargement.</p>
+                </section>
+
+                <section id="accessibility">
+                    <h2>Accessibilité</h2>
+                    <p>Configurez les options d'accessibilité pour une meilleure expérience.</p>
+                </section>
+
+                <section id="system">
+                    <h2>Système</h2>
+                    <p>Gérez les paramètres système de votre navigateur.</p>
+                </section>
+
+                <section id="about">
+                    <h2>À propos de TEXTA web</h2>
+                    <p>Version : 1.0.0</p>
+                    <p>Développé par TEXTA Inc</p>
+                    <p>© 2025 TEXTA web | Tous droits réservés</p>
+                    <!-- Vérifier les mise à jours -->
+                    <p>Vérifier les mises à jour : Non disponible</p>
+                </section>
+
+
+                <!-- ===== Sous-sections : Vous et nos services ===== -->
+                <section id="profile">
+                    <h2>Votre profil</h2>
+                    <p>Gérez vos informations personnelles et vos préférences.</p>
+                </section>
+            </main>
+        </div>
     </div>
 
-    <main>
-        <section id="services" class="active">
-            <h2>Vous et nos services</h2>
-            <div class="element" id="profile">
-                <a href="#profile">
-                    <h3>Votre profil</h3>
-                    <p>Gérez vos informations personnelles et vos préférences.</p>
-                </a>
-            </div>
-        </section>
-        <section id="profile">
-            <h2>Votre profil</h2>
-            <p>Gérez vos informations personnelles et vos préférences.</p>
-        </section>
-        <section id="apparence">
-            <h2>Apparence</h2>
-            <p>Personnalisez l'apparence de votre navigateur.</p>
-        </section>
-        <section id="search">
-            <h2>Recherche</h2>
-            <p>Configurez vos préférences de recherche.</p>
-        </section>
-        <section id="security">
-            <h2>Sécurité et confidentialité</h2>
-            <p>Gérez vos paramètres de sécurité et de confidentialité.</p>
-        </section>
-        <section id="privacy">
-            <h2>Vie privée</h2>
-            <p>Contrôlez vos données personnelles et votre vie privée.</p>
-        </section>
-        <section id="sync">
-            <h2>Synchronisations</h2>
-            <p>Synchronisez vos données entre vos appareils.</p>
-        </section>
-        <section id="extensions">
-            <h2>Extensions</h2>
-            <p>Gérez vos extensions et modules complémentaires.</p>
-        </section>
-        <section id="passwords">
-            <h2>Saisie automatique mots de passe</h2>
-            <p>Gérez vos mots de passe et la saisie automatique.</p>
-        </section>
-        <section id="languages">
-            <h2>Langues</h2>
-            <p>Configurez vos préférences linguistiques.</p>
-        </section>
-        <section id="downloads">
-            <h2>Téléchargements</h2>
-            <p>Gérez vos paramètres de téléchargement.</p>
-        </section>
-        <section id="accessibility">
-            <h2>Accessibilité</h2>
-            <p>Configurez les options d'accessibilité pour une meilleure expérience.</p>
-        </section>
-        <section id="system">
-            <h2>Système</h2>
-            <p>Gérez les paramètres système de votre navigateur.</p>
-        </section>
-        <section id="about">
-            <h2>À propos de TEXTA web</h2>
-            <p>Version : 1.0.0</p>
-            <p>Développé par TEXTA Inc</p>
-            <p>© 2025 TEXTA web | Tous droits réservés</p>
-            <!-- Vérifier les mise à jours -->
-            <p>Vérifier les mises à jour : Non disponible</p>
-        </section>
-    </main>
 
     <script>
         const links = document.querySelectorAll('.side-bar a');
@@ -183,4 +320,5 @@
         }
     </script>
 </body>
+
 </html>
