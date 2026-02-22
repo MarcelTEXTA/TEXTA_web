@@ -1,44 +1,35 @@
-﻿using TEXTA_web.Models;
+﻿using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
-namespace TEXTA_web.ViewModels
+public class TabViewModel : INotifyPropertyChanged
 {
-    public class BrowserTabViewModel : BaseViewModel
+    private string _address = "https://www.google.com";
+    private string _title = "Nouvel onglet";
+
+    public string Address
     {
-        private readonly BrowserTabModel _model;
-
-        public BrowserTabViewModel(BrowserTabModel model)
+        get => _address;
+        set
         {
-            _model = model;
+            _address = value;
+            OnPropertyChanged();
         }
+    }
 
-        public string Title
+    public string Title
+    {
+        get => _title;
+        set
         {
-            get => _model.Title;
-            set
-            {
-                _model.Title = value;
-                OnPropertyChanged();
-            }
+            _title = value;
+            OnPropertyChanged();
         }
+    }
 
-        public string Url
-        {
-            get => _model.Url;
-            set
-            {
-                _model.Url = value;
-                OnPropertyChanged();
-            }
-        }
+    public event PropertyChangedEventHandler PropertyChanged;
 
-        public bool IsPrivate
-        {
-            get => _model.IsPrivate;
-            set
-            {
-                _model.IsPrivate = value;
-                OnPropertyChanged();
-            }
-        }
+    protected void OnPropertyChanged([CallerMemberName] string name = null)
+    {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
     }
 }

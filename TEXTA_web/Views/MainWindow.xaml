@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:TEXTA_web.ViewModels"
-        xmlns:wv2="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf"
+        xmlns:cef="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
         mc:Ignorable="d"
         Icon="/Assets/IconWeb.ico"
         Title="TEXTA web"
@@ -79,31 +79,34 @@
         <!-- ============================= -->
 
         <TabControl Grid.Row="1"
-                    ItemsSource="{Binding Tabs}"
-                    SelectedItem="{Binding SelectedTab}"
-                    TabStripPlacement="Left">
+            ItemsSource="{Binding Tabs}"
+            SelectedItem="{Binding SelectedTab}"
+            TabStripPlacement="Left">
 
             <!-- Header Template -->
             <TabControl.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="{Binding Title}"
-                                   Margin="0,0,5,0"/>
+                           Margin="0,0,5,0"/>
 
                         <Button Content="x"
-                                Width="18"
-                                Height="18"
-                                Padding="0"
-                                Command="{Binding DataContext.CloseTabCommand,
-                                          RelativeSource={RelativeSource AncestorType=TabControl}}"/>
+                        Width="18"
+                        Height="18"
+                        Padding="0"
+                        Command="{Binding DataContext.CloseTabCommand,
+                                  RelativeSource={RelativeSource AncestorType=TabControl}}"
+                        CommandParameter="{Binding}"/>
                     </StackPanel>
                 </DataTemplate>
             </TabControl.ItemTemplate>
 
-            <!-- Content Template -->
+            <!-- CONTENT TEMPLATE CORRECT -->
             <TabControl.ContentTemplate>
                 <DataTemplate>
-                    <wv2:WebView2 Source="{Binding Url}" />
+                    <cef:ChromiumWebBrowser
+                Address="{Binding Address}"
+                />
                 </DataTemplate>
             </TabControl.ContentTemplate>
 

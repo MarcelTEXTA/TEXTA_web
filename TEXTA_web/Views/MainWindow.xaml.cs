@@ -1,4 +1,7 @@
-﻿using System.Windows;
+﻿using CefSharp;
+using System.IO;
+using System.Windows;
+
 
 namespace TEXTA_web.View
 {
@@ -7,6 +10,8 @@ namespace TEXTA_web.View
         public MainWindow()
         {
             InitializeComponent();
+
+            Browser.Address = "https://www.google.com";
         }
     }
 }
