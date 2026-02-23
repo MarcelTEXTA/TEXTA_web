@@ -10,8 +10,6 @@ namespace TEXTA_web.Views
         public MainWindow()
         {
             InitializeComponent();
-
-            Browser.Address = "https://www.google.com";
         }
     }
 }

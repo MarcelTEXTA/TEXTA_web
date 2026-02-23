@@ -21,7 +21,7 @@ namespace TEXTA_web
 
             Cef.Initialize(settings);
 
-            var mainWindow = new View.MainWindow();
+            var mainWindow = new Views.MainWindow();
             mainWindow.Show();
         }
     }

@@ -1,6 +1,6 @@
 # TEXTA web (fr)
 
-TEXTA web est un navigateur open-source basée sur le WebView2 de Microsoft Edge, conçu pour offrir une expérience de naviagation anonyme et sécurisée en gardant une naviagation fluide et rapide. Ce navigateur met l'accent sur la confidentialité de l'utilisateur en intégrant des fonctionnalités avancées de blocage des traqueurs et des publicités, tout en assurant une compatibilité optimale avec les sites web modernes.
+TEXTA web est un navigateur chromium open-source, conçu pour offrir une expérience de naviagation anonyme et sécurisée en gardant une naviagation fluide et rapide. Ce navigateur met l'accent sur la confidentialité de l'utilisateur en intégrant des fonctionnalités avancées de blocage des traqueurs et des publicités, tout en assurant une compatibilité optimale avec les sites web modernes.
 
 TEXTA web est idéal pour les utilisateurs soucieux de leur vie privée qui souhaitent naviguer sur Internet sans être suivis par des tiers. Grâce à son interface conviviale et ses options de personnalisation, TEXTA web permet aux utilisateurs de configurer leur expérience de navigation selon leurs préférences tout en bénéficiant d'une protection renforcée contre les menaces en ligne.
 
@@ -9,7 +9,7 @@ Ce navigateur est également conçu pour être léger et efficace, minimisant l'
 ## Fonctionnalités principales
 
 - **Navigation anonyme** : Bloque les traqueurs et les publicités pour protéger la vie privée de l'utilisateur.
-- **Basé sur WebView2** : Utilise le moteur de rendu de Microsoft Edge pour une compatibilité optimale avec les sites web modernes.
+- **Navigateur chromium CefShapr** : TEXTA web utilise un moteur chromium pour assurer une compatibilité optimale avec les sites web modernes et offrir une expérience de navigation fluide et rapide. 
 - **Interface neuve pour un navigateur moderne** : Les onglets sont affichés à gauche et utilise des espaces de travail pour organiser les sessions de navigation.
 - **Personnalisation avancée** : Permet aux utilisateurs de configurer les paramètres de confidentialité et de sécurité selon leurs préférences.
 - **Léger et efficace** : Conçu pour minimiser l'impact sur les ressources système tout en offrant des performances élevées.
@@ -17,11 +17,13 @@ Ce navigateur est également conçu pour être léger et efficace, minimisant l'
 
 ## Avertissement de sécurité et limitations
 
-TEXTA web n'est pas encore complet, cela veut dire que certaines fonctionnalités ne sont pas disponibles ou peuvent ne pas fonctionner comme prévu, la navigation anonyme peut ne pas être gatantie. Il est recommandé de ne pas utiliser ce navigateur pour vos activités quotidiennes ou pour accéder à des informations sensibles jusqu'à ce que le développement soit terminé et que toutes les fonctionnalités soient pleinement opérationnelles.
+TEXTA web n'est pas encore complet, cela veut dire que certaines fonctionnalités ne sont pas disponibles ou peuvent ne fonctionnent pas comme prévu, la navigation anonyme peut ne pas être gatantie. Il est recommandé de ne pas utiliser ce navigateur pour vos activités quotidiennes ou pour accéder à des informations sensibles jusqu'à ce que le développement soit terminé et que toutes les fonctionnalités soient pleinement opérationnelles.
+
+L'utilisation de TEXTA web doit être pour l'instant limitée à des fins de test et de développement, et il est important de rester vigilant quant à la sécurité de vos données personnelles lors de l'utilisation de ce navigateur en cours de développement.
 
 ## Téléchargement et installation
 
-Pour le moment, TEXTA web n'est oas encore disponible en téléchargement public. Restez à l'écoute pour les mises à jour futures concernant la disponibilité et les instructions d'installation.
+Veuillez aller voir les releases du projet sur GitHub pour télécharger la dernière version de TEXTA web. Les notes de versions vous informeront des fonctionnalités disponibles et des éventuelles limitations de chaque version.
 
 ## Contribution et support
 
