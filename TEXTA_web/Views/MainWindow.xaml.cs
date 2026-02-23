@@ -3,7 +3,7 @@ using System.IO;
 using System.Windows;
 
 
-namespace TEXTA_web.View
+namespace TEXTA_web.Views
 {
     public partial class MainWindow : Window
     {

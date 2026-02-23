@@ -1,21 +1,18 @@
 ﻿using System.Collections.ObjectModel;
 
-public class MainWindowViewModel
+namespace TEXTA_web.ViewModels
 {
-    public ObservableCollection<TabViewModel> Tabs { get; set; }
-
-    public TabViewModel SelectedTab { get; set; }
-
-    public MainWindowViewModel()
+    public class MainWindowViewModel
     {
-        Tabs = new ObservableCollection<TabViewModel>();
-        AddNewTab();
-    }
+        public ObservableCollection<TabViewModel> Tabs { get; set; }
+        public TabViewModel SelectedTab { get; set; }
 
-    public void AddNewTab()
-    {
-        var tab = new TabViewModel();
-        Tabs.Add(tab);
-        SelectedTab = tab;
+        public MainWindowViewModel()
+        {
+            Tabs = new ObservableCollection<TabViewModel>();
+            var firstTab = new TabViewModel();
+            Tabs.Add(firstTab);
+            SelectedTab = firstTab;
+        }
     }
 }

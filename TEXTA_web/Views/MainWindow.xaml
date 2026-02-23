@@ -1,4 +1,5 @@
-﻿<Window x:Class="TEXTA_web.View.MainWindow"
+﻿<Window x:Class="TEXTA_web.Views.MainWindow"
+        xmlns:vm="clr-namespace:TEXTA_web.ViewModels"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -82,17 +83,14 @@
             SelectedItem="{Binding SelectedTab}"
             TabStripPlacement="Left">
 
-            <!-- Header Template -->
+            <!-- Item -->
             <TabControl.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding Title}"
-                           Margin="0,0,5,0"/>
-
+                        <TextBlock Text="{Binding Title}" Margin="0,0,5,0"/>
                         <Button Content="x"
                         Width="18"
                         Height="18"
-                        Padding="0"
                         Command="{Binding DataContext.CloseTabCommand,
                                   RelativeSource={RelativeSource AncestorType=TabControl}}"
                         CommandParameter="{Binding}"/>
@@ -100,13 +98,10 @@
                 </DataTemplate>
             </TabControl.ItemTemplate>
 
-            <!-- CONTENT TEMPLATE CORRECT -->
+            <!-- Content -->
             <TabControl.ContentTemplate>
                 <DataTemplate>
-                    <cef:ChromiumWebBrowser
-                        x:Name="BrowserView"
-                        Address="{Binding Address}"
-                />
+                    <cef:ChromiumWebBrowser Address="{Binding Address}" />
                 </DataTemplate>
             </TabControl.ContentTemplate>
 
