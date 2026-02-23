@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:vm="clr-namespace:TEXTA_web.ViewModels"
         xmlns:cef="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
         mc:Ignorable="d"
         Icon="/Assets/IconWeb.ico"
@@ -105,7 +104,8 @@
             <TabControl.ContentTemplate>
                 <DataTemplate>
                     <cef:ChromiumWebBrowser
-                Address="{Binding Address}"
+                        x:Name="BrowserView"
+                        Address="{Binding Address}"
                 />
                 </DataTemplate>
             </TabControl.ContentTemplate>
