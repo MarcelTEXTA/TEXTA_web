@@ -5,7 +5,7 @@ namespace TEXTA_web.ViewModels
 {
     public class TabViewModel : INotifyPropertyChanged
     {
-        private string _address = "https://www.google.com";
+        private string _address = "file:///Assets/welcome.html";
         private string _title = "Nouvel onglet";
 
         public string Address
