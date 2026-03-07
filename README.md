@@ -45,7 +45,7 @@ Pour toute question ou support, veuillez contacter le support TEXTA via les cana
 
 # TEXTA web (en)
 
-TEXTA web is an open-source browser based on Microsoft Edge's WebView2, designed to provide an anonymous and secure browsing experience while maintaining smooth and fast navigation. This browser emphasizes user privacy by integrating advanced tracker and ad-blocking features while ensuring optimal compatibility with modern websites.
+TEXTA web is an open-source web browser designed to provide an anonymous and secure browsing experience while maintaining a smooth and fast navigation. This browser emphasizes user privacy by integrating advanced features for blocking trackers and ads, while ensuring optimal compatibility with modern websites.
 
 TEXTA web is ideal for privacy-conscious users who want to browse the internet without being tracked by third parties. With its user-friendly interface and customization options, TEXTA web allows users to configure their browsing experience according to their preferences while benefiting from enhanced protection against online threats.
 
@@ -63,6 +63,18 @@ The browser is also designed to be lightweight and efficient, minimizing the imp
 ## Security Warning and Limitations
 
 TEXTA web is not yet complete, which means that some features may not be available or may not work as intended, and anonymous browsing may not be guaranteed. It is recommended not to use this browser for your daily activities or to access sensitive information until development is complete and all features are fully operational.
+
+The use of TEXTA web should currently be limited to testing and development purposes, and it is important to remain vigilant about the security of your personal data when using this browser in development.
+
+Tasks to avoid:
+- Using social media;
+- Web applications (Canvas, Figma, etc.);
+- Accessing sensitive accounts (banking, email, etc.).
+
+Tasks to do:
+- Browsing news sites (not too sensitive);
+- Browsing entertainment sites **without accessing accounts** (YouTube, Netflix, etc.);
+- Browsing information search sites (not too sensitive).
 
 ## Download and Installation
 
