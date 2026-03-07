@@ -166,12 +166,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="AdBlock\AdBlockRequestHandler.cs" />
+    <Compile Include="AdBlock\AdBlockService.cs" />
+    <Compile Include="AdBlock\DomainFilter.cs" />
+    <Compile Include="AdBlock\FilterListLoader.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Helpers\RelayCommand.cs" />
     <Compile Include="Models\BrowserTabModel.cs" />
+    <Compile Include="Services\HistoryService.cs" />
+    <Compile Include="Services\NavigationService.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\TabViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
