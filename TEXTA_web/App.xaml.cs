@@ -12,6 +12,10 @@ namespace TEXTA_web
         {
             base.OnStartup(e);
 
+            var filters = await FilterListLoader.LoadEasyList();
+
+            AdBlockService.LoadFilters(filters);
+
             var settings = new CefSettings
             {
                 CachePath = Path.Combine(
