@@ -6,6 +6,8 @@ TEXTA web est idéal pour les utilisateurs soucieux de leur vie privée qui souh
 
 Ce navigateur est également conçu pour être léger et efficace, minimisant l'impact sur les ressources système tout en offrant des performances élevées. En résumé, TEXTA web est une solution de navigation sécurisée et respectueuse de la vie privée, adaptée aux besoins des utilisateurs modernes.
 
+En savoir plus sur le [wiki du projet](https://github.com/MarcelTEXTA/TEXTA_web/wiki).
+
 ## Fonctionnalités principales
 
 - **Navigation anonyme** : Bloque les traqueurs et les publicités pour protéger la vie privée de l'utilisateur.
@@ -20,6 +22,16 @@ Ce navigateur est également conçu pour être léger et efficace, minimisant l'
 TEXTA web n'est pas encore complet, cela veut dire que certaines fonctionnalités ne sont pas disponibles ou peuvent ne fonctionnent pas comme prévu, la navigation anonyme peut ne pas être gatantie. Il est recommandé de ne pas utiliser ce navigateur pour vos activités quotidiennes ou pour accéder à des informations sensibles jusqu'à ce que le développement soit terminé et que toutes les fonctionnalités soient pleinement opérationnelles.
 
 L'utilisation de TEXTA web doit être pour l'instant limitée à des fins de test et de développement, et il est important de rester vigilant quant à la sécurité de vos données personnelles lors de l'utilisation de ce navigateur en cours de développement.
+
+Taches à ne pas faire :
+- Utilisation de réseaux sociaux ;
+- Applications web (Canvas, Figma, etc.) ;
+- Accès à des comptes sensibles (banque, email, etc.).
+
+Taches à faire :
+- Navigation sur des sites d'actualités (pas trop sensibles) ;
+- Navigation sur des sites de divertissement **sans accès à des comptes** (YouTube, Netflix, etc.) ;
+- Navigation sur des sites de recherche d'informations (pas trop sensibles).
 
 ## Téléchargement et installation
 
