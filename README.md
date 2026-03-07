@@ -43,6 +43,8 @@ TEXTA web est un projet open-source et les contributions sont les bienvenues. Si
 
 Pour toute question ou support, veuillez contacter le support TEXTA via les canaux appropriés indiqués dans le dépôt GitHub.
 
+En savoir plus sur le [guide de contribution](https://github.com/MarcelTEXTA/TEXTA_web/blob/master/contribution.md).
+
 # TEXTA web (en)
 
 TEXTA web is an open-source web browser designed to provide an anonymous and secure browsing experience while maintaining a smooth and fast navigation. This browser emphasizes user privacy by integrating advanced features for blocking trackers and ads, while ensuring optimal compatibility with modern websites.
