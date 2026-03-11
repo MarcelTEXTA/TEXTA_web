@@ -12,7 +12,7 @@ Le navigateur open-source - [english README](en-README.md)
 
 TEXTA web sera un navigateur chromium open-source, conçu pour offrir une expérience de navigation anonyme et sécurisée en gardant une navigation fluide et rapide. Ce navigateur mettera l'accent sur la confidentialité de l'utilisateur en intégrant des fonctionnalités avancées de blocage des traqueurs et des publicités, cela assurrera une compatibilité optimale avec les sites web modernes.
 
-TEXTA web sera idéal pour les utilisateurs soucieux de leur vie privée qui souhaitent naviguer sur Internet sans être suivis par des tiers. Grâce à son interface conviviale et ses options de personnalisation, TEXTA web permettera aux utilisateurs de configurer leur expérience de navigation selon leurs préférences tout en bénéficiant d'une protection renforcée contre les menaces en ligne.
+TEXTA web sera idéal pour les utilisateurs soucieux de leur vie privée qui souhaitent naviguer sur Internet sans être suivis par des tiers. Grâce à son interface conviviale et ses options de personnalisation, TEXTA web permettra aux utilisateurs de configurer leur expérience de navigation selon leurs préférences tout en bénéficiant d'une protection renforcée contre les menaces en ligne.
 
 Ce navigateur sera également conçu pour être léger et efficace, minimisant l'impact sur les ressources système tout en offrant des performances élevées. En résumé, TEXTA web sera une solution de navigation sécurisée et respectueuse de la vie privée, adaptée aux besoins des utilisateurs modernes.
 
