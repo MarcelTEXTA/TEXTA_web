@@ -21,7 +21,7 @@ En savoir plus sur le [wiki du projet](https://github.com/MarcelTEXTA/TEXTA_web/
 ## Fonctionnalités principales (à venir)
 
 - **Navigation anonyme** : Bloque les traqueurs et les publicités pour protéger la vie privée de l'utilisateur.
-- **Navigateur chromium CefShapr** : TEXTA web utilise un moteur chromium pour assurer une compatibilité optimale avec les sites web modernes et offrir une expérience de navigation fluide et rapide. 
+- **Navigateur chromium CefSharp** : TEXTA web utilise un moteur chromium pour assurer une compatibilité optimale avec les sites web modernes et offrir une expérience de navigation fluide et rapide. 
 - **Interface neuve pour un navigateur moderne** : Les onglets sont affichés à gauche et utilise des espaces de travail pour organiser les sessions de navigation.
 - **Personnalisation avancée** : Permet aux utilisateurs de configurer les paramètres de confidentialité et de sécurité selon leurs préférences.
 - **Léger et efficace** : Conçu pour minimiser l'impact sur les ressources système tout en offrant des performances élevées.
