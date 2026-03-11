@@ -55,7 +55,7 @@ Pour toute question ou support, veuillez contacter le support TEXTA via les cana
 
 En savoir plus sur le [guide de contribution](docs/CONTRIBUTING.md).
 
-## Developpeur
+## Développeur
 
 
 ---
